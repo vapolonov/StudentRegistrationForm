@@ -1,0 +1,27 @@
+
+//Конфигурационный файл, который определяет структуру проекта,
+//из чего он будет состоять, какие зависимости использовать, откуда эти зависимости скачивать и где их искать
+//какие плагины будут применяться
+
+plugins {
+    id 'java-library'
+}
+
+repositories {
+//центральное хранилище https://mvnrepository.com/
+    mavenCentral()
+}
+
+
+dependencies {
+    testImplementation (
+            //зависимости используются для тестов (просто implementations распространяются и на main)
+            'com.codeborne:selenide:5.25.0-selenium-4.0.0',
+            // другая запись group: com.codeborne, name: selenide, version: 5.25.0
+            "org.junit.jupiter:junit-jupiter:5.8.1")
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:5.8.1"
+}
+
+test {
+    useJUnitPlatform()
+}
